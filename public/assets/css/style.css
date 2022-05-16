@@ -1,0 +1,17 @@
+.center-login {
+    text-align: center;
+    background-color: rgb(97, 97, 97);
+    color: white;
+    border-radius: 1%;
+    padding: 2%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10%;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2%;
+    color: grey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
