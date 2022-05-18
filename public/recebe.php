@@ -1,18 +1,43 @@
 <?php
-if (isset($_POST['email'])) {
-    $email = $_POST['email'];
-} else {
-    $email = null;
-}
 
-if (isset($_POST['senha'])) {
-    $senha = $_POST['senha'];
-} else {
-    $senha = null;
-}
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+    } else {
+        $email = null;
+    }
+
+    if (isset($_POST['senha'])) {
+        $senha = $_POST['senha'];
+    } else {
+        $senha = null;
+    }
+////////////////////////////////////////////////////////
+
+use Database\Database;
+
+require_once "../src/model/Database.php";
+
+    $db = new Database();
+
+    $result = $db->select(
+        "SELECT * FROM usuarios WHERE email = '$email'; "
+    );
+
+    //var_dump($result);
+
+    if( isset($result[0]) ) {
+        $senhaDb = $result[0]->senha;
+        $emailDb = $result[0]->email;
+    } else {
+        $senhaDb = null;
+        $emailDb = null;
+    }
+
+    //var_dump($senhaDb);
+////////////////////////////////////////////////////////
 
 if ($email != null && $senha != null) {
-    if ($email == 'andre@bol.com.br' && $senha == '1234') {
+    if ($email == $emailDb && $senha == $senhaDb) {
         $msg = 'Bem vindo!';
         $redirect = "<meta http-equiv='refresh' content='3; url = https://qi.edu.br' />";
     } else {
@@ -75,7 +100,7 @@ require_once "../src/views/header_nav.php";
 
             <br><br>
 
-            <input type="submit" value="Enviar" class="btn btn-primary col-4 offset-4" />
+            <input type="submit" value="Enviar" onclick="confirmaPedido()" class="btn btn-primary col-4 offset-4" />
         </form>
     </div>
 

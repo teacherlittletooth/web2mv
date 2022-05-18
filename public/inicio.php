@@ -1,17 +1,3 @@
-<?php
-
-use Database\Database;
-
-require_once "../src/model/Database.php";
-
-    $db = new Database();
-
-    $db->insert(
-        "INSERT INTO usuarios (nome, email, senha)
-        VALUES ('Paulo Donini', 'paulo.donini@qi.edu.br', 'senha4321');"
-    );
-?>
-
 <?php require_once "../src/views/header.php" ?>
 
     <div class="center-login">

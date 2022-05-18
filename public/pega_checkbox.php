@@ -1,5 +1,6 @@
 <?php
 
+use Database\Database;
 use Model\Pedido;
 
     require_once('../vendor/autoload.php');
@@ -63,6 +64,23 @@ use Model\Pedido;
     </h3>
 
     <?= $obj1->darDesconto() ?>
+
+<?php
+//////////////////////////////////////////////////////
+require_once "../src/model/Database.php";
+
+$agora = date('Y-m-d H:i:s');
+
+$db = new Database();
+
+$db->insert(
+    "INSERT INTO pedidos(data_hora)
+    VALUES ('$agora'); "
+);
+
+
+//////////////////////////////////////////////////////
+?>
 
 </body>
 </html>
