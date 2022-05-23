@@ -6,6 +6,7 @@ class Pedido
 {
     //Atributos
     private $numPedido;
+    public $dataHora;
     public $ingredientes;
     public $qtde;
     public $pgto;
@@ -21,6 +22,7 @@ class Pedido
     private function dataDoPedido()
     {
         date_default_timezone_set('America/Sao_Paulo');
+        $this->dataHora = date('Y-m-d H:i:s');
         return "Data e hora do pedido: " . date("d/m/Y H:i:s");
     }
 

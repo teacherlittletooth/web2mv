@@ -20,10 +20,8 @@ require_once "../src/model/Database.php";
     $db = new Database();
 
     $result = $db->select(
-        "SELECT * FROM usuarios WHERE email = '$email'; "
+        "SELECT * FROM usuarios where email = 'paulo.donini@qi.edu.br'; "
     );
-
-    //var_dump($result);
 
     if( isset($result[0]) ) {
         $senhaDb = $result[0]->senha;
@@ -33,16 +31,16 @@ require_once "../src/model/Database.php";
         $emailDb = null;
     }
 
-    //var_dump($senhaDb);
+    //var_dump($result[0]);
 ////////////////////////////////////////////////////////
 
 if ($email != null && $senha != null) {
     if ($email == $emailDb && $senha == $senhaDb) {
         $msg = 'Bem vindo!';
-        $redirect = "<meta http-equiv='refresh' content='3; url = https://qi.edu.br' />";
+        //$redirect = "<meta http-equiv='refresh' content='3; url = https://qi.edu.br' />";
     } else {
         $msg = 'Acesso negado!';
-        $redirect = "<meta http-equiv='refresh' content='1; url = ../index.php' />";
+        //$redirect = "<meta http-equiv='refresh' content='1; url = ../index.php' />";
     }
 }
 
@@ -59,7 +57,7 @@ require_once "../src/views/header_nav.php";
 
     <div class="form-group">
         <form method="get" action="pega_checkbox.php">
-            <div class="form-check">
+            <div class="form-check form-switch">
                 <input type="checkbox" class="form-check-input" name="ingrediente[]" value="Pão" />
                 Pão<br>
                 <input type="checkbox" class="form-check-input" name="ingrediente[]" value="Carne" />
