@@ -15,8 +15,8 @@ use Database\Database;
     ?>
     <!-- Início da tabela -->
     
-    <table class="table container">
-        <thead>
+    <table class="table container mt-3">
+        <thead class="text-white bg-dark">
             <tr>
                 <th>Código</th>
                 <th>Data e hora</th>
@@ -24,6 +24,8 @@ use Database\Database;
                 <th>Quantidade</th>
                 <th>Pagamento</th>
                 <th>Bandeira</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +38,9 @@ use Database\Database;
             <td><?= $linha->qtde ?></td>
             <td><?= $linha->pgto ?></td>
             <td><?= $linha->card_flag ?></td>
+            <td>
+                <a href="../public/atualiza.php?cod=<?= $linha->cod ?>"> Editar </a>
+            </td>
         </tr>
         <?php endforeach; ?>
         
