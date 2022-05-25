@@ -20,7 +20,7 @@ $resultDb = $db->select(
 //var_dump($resultDb);
 ?>
 
-<form method="post" action="../src/data/save.php">
+<form method="post" action="../data/save.php">
     <h3>Atualização de dados</h3>
 
     <h5>Código</h5>
